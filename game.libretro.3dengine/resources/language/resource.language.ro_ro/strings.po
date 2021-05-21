@@ -14,35 +14,34 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n==1 ? 0 : (n==0 || (n%100 > 0 && n%100 < "
-"20)) ? 1 : 2;\n"
+"Plural-Forms: nplurals=3; plural=n==1 ? 0 : (n==0 || (n%100 > 0 && n%100 < 20)) ? 1 : 2;\n"
 
 msgctxt "#30000"
 msgid "Settings"
 msgstr ""
 
 msgctxt "#30001"
-msgid "Camera enable"
+msgid "Internal resolution"
 msgstr ""
 
 msgctxt "#30002"
-msgid "Camera FB Type"
-msgstr ""
-
-msgctxt "#30003"
 msgid "Cube size"
 msgstr ""
 
-msgctxt "#30004"
+msgctxt "#30003"
 msgid "Cube stride"
 msgstr ""
 
+msgctxt "#30004"
+msgid "Camera enable"
+msgstr ""
+
 msgctxt "#30005"
-msgid "Location camera control"
+msgid "Camera FB Type"
 msgstr ""
 
 msgctxt "#30006"
-msgid "Location position OSD"
+msgid "Sensor enable"
 msgstr ""
 
 msgctxt "#30007"
@@ -50,13 +49,13 @@ msgid "Location enable"
 msgstr ""
 
 msgctxt "#30008"
-msgid "Discard hack enable"
+msgid "Location camera control"
 msgstr ""
 
 msgctxt "#30009"
-msgid "Internal resolution"
+msgid "Discard hack enable"
 msgstr ""
 
 msgctxt "#30010"
-msgid "Sensor enable"
+msgid "Location position OSD"
 msgstr ""
