@@ -1,0 +1,333 @@
+From dc24598954375ca1c85bc2d6a14dcc66a3de86ff Mon Sep 17 00:00:00 2001
+From: Garrett Brown <themagnificentmrb@gmail.com>
+Date: Sat, 22 May 2021 22:19:30 -0700
+Subject: [PATCH] Remove use of tr1
+
+Causes the following error on modern compilers:
+
+  shared.hpp:28:10: fatal error: 'tr1/memory' file not found
+  #include <tr1/memory>
+           ^~~~~~~~~~~~
+---
+ engine/mesh.cpp         |  9 ++++-----
+ engine/mesh.hpp         | 18 +++++++++---------
+ engine/object.cpp       | 21 ++++++++++-----------
+ engine/object.hpp       |  2 +-
+ engine/texture.cpp      |  6 +++---
+ engine/texture.hpp      |  4 +++-
+ program/modelviewer.cpp |  6 +++---
+ shared.hpp              | 10 ----------
+ 8 files changed, 33 insertions(+), 43 deletions(-)
+
+diff --git a/engine/mesh.cpp b/engine/mesh.cpp
+index d075418..5b96447 100644
+--- a/engine/mesh.cpp
++++ b/engine/mesh.cpp
+@@ -19,7 +19,6 @@
+ 
+ using namespace glm;
+ using namespace std;
+-using namespace std1;
+ 
+ namespace GL
+ {
+@@ -56,7 +55,7 @@ namespace GL
+ 
+    void Mesh::set_vertices(vector<Vertex> vertex)
+    {
+-      set_vertices(std1::shared_ptr<vector<Vertex> >(new vector<Vertex>(vertex)));
++      set_vertices(std::shared_ptr<vector<Vertex> >(new vector<Vertex>(vertex)));
+    }
+ 
+    void Mesh::set_vertex_type(GLenum type)
+@@ -74,7 +73,7 @@ namespace GL
+       this->eye_pos = eye_pos;
+    }
+ 
+-   void Mesh::set_vertices(const std1::shared_ptr<vector<Vertex> >& vertex)
++   void Mesh::set_vertices(const std::shared_ptr<vector<Vertex> >& vertex)
+    {
+       this->vertex = vertex;
+ 
+@@ -89,12 +88,12 @@ namespace GL
+       this->material = material;
+    }
+ 
+-   void Mesh::set_blank(const std1::shared_ptr<Texture>& blank)
++   void Mesh::set_blank(const std::shared_ptr<Texture>& blank)
+    {
+       this->blank = blank;
+    }
+ 
+-   void Mesh::set_shader(const std1::shared_ptr<Shader>& shader)
++   void Mesh::set_shader(const std::shared_ptr<Shader>& shader)
+    {
+       this->shader = shader;
+    }
+diff --git a/engine/mesh.hpp b/engine/mesh.hpp
+index 5f657f4..656cdf1 100644
+--- a/engine/mesh.hpp
++++ b/engine/mesh.hpp
+@@ -53,8 +53,8 @@ namespace GL
+       glm::vec3 specular;
+       float specular_power;
+       float alpha_mod;
+-      std1::shared_ptr<Texture> diffuse_map;
+-      std1::shared_ptr<Texture> ambient_map;
++      std::shared_ptr<Texture> diffuse_map;
++      std::shared_ptr<Texture> ambient_map;
+    };
+ 
+    class Mesh
+@@ -63,15 +63,15 @@ namespace GL
+          Mesh();
+          ~Mesh();
+ 
+-         std1::shared_ptr<std::vector<Vertex> > get_vertex() const { return vertex; }
++         std::shared_ptr<std::vector<Vertex> > get_vertex() const { return vertex; }
+          const Material& get_material() const { return material; }
+ 
+          void set_vertices(std::vector<Vertex> vertex);
+-         void set_vertices(const std1::shared_ptr<std::vector<Vertex> >& vertex);
++         void set_vertices(const std::shared_ptr<std::vector<Vertex> >& vertex);
+          void set_vertex_type(GLenum type);
+          void set_material(const Material& material);
+-         void set_blank(const std1::shared_ptr<Texture>& blank);
+-         void set_shader(const std1::shared_ptr<Shader>& shader);
++         void set_blank(const std::shared_ptr<Texture>& blank);
++         void set_shader(const std::shared_ptr<Shader>& shader);
+ 
+          void set_ambient_lighting(float r, float g, float b);
+          void set_model(const glm::mat4& model);
+@@ -88,9 +88,9 @@ namespace GL
+       private:
+          GLuint vbo;
+          GLenum vertex_type;
+-         std1::shared_ptr<std::vector<Vertex> > vertex;
+-         std1::shared_ptr<Shader> shader;
+-         std1::shared_ptr<Texture> blank;
++         std::shared_ptr<std::vector<Vertex> > vertex;
++         std::shared_ptr<Shader> shader;
++         std::shared_ptr<Texture> blank;
+ 
+          Material material;
+          glm::vec3 light_pos;
+diff --git a/engine/object.cpp b/engine/object.cpp
+index 170d531..7c7f5f3 100644
+--- a/engine/object.cpp
++++ b/engine/object.cpp
+@@ -24,7 +24,6 @@
+ using namespace GL;
+ using namespace glm;
+ using namespace std;
+-using namespace std1;
+ 
+ namespace OBJ
+ {
+@@ -131,7 +130,7 @@ namespace OBJ
+       }
+    }
+ 
+-   static map<string, Material> parse_mtllib(const string& path, map<string, std1::shared_ptr<Texture> >& textures)
++   static map<string, Material> parse_mtllib(const string& path, map<string, std::shared_ptr<Texture> >& textures)
+    {
+       map<string, Material> materials;
+       Material current;
+@@ -175,7 +174,7 @@ namespace OBJ
+             if (!textures[data])
+             {
+                string diffuse_path = Path::join(Path::basedir(path), data);
+-               textures[data] = std1::shared_ptr<Texture>(new Texture(diffuse_path));
++               textures[data] = std::shared_ptr<Texture>(new Texture(diffuse_path));
+             }
+ 
+             current.diffuse_map = textures[data];
+@@ -185,7 +184,7 @@ namespace OBJ
+             if (!textures[data])
+             {
+                string ambient_path = Path::join(Path::basedir(path), data);
+-               textures[data] = std1::shared_ptr<Texture>(new Texture(ambient_path));
++               textures[data] = std::shared_ptr<Texture>(new Texture(ambient_path));
+             }
+ 
+             current.ambient_map = textures[data];
+@@ -197,7 +196,7 @@ namespace OBJ
+       return materials;
+    }
+ 
+-   vector<std1::shared_ptr<Mesh> > load_from_file(const string& path)
++   vector<std::shared_ptr<Mesh> > load_from_file(const string& path)
+    {
+       vector<vec3> vertex;
+       vector<vec3> normal;
+@@ -206,13 +205,13 @@ namespace OBJ
+       vector<Vertex> vertices;
+ 
+       /* Texture cache. */
+-      map<string, std1::shared_ptr<Texture> > textures;
++      map<string, std::shared_ptr<Texture> > textures;
+       Material current_material;
+       string line;
+ 
+       map<string, Material> materials;
+       ifstream file(path.c_str(), ios::in);
+-      vector<std1::shared_ptr<Mesh> > meshes;
++      vector<std::shared_ptr<Mesh> > meshes;
+ 
+       if (!file.is_open())
+          return meshes;
+@@ -237,7 +236,7 @@ namespace OBJ
+          {
+             if (vertices.size()) // Different texture, new mesh.
+             {
+-               std1::shared_ptr<Mesh> mesh(new Mesh());
++               std::shared_ptr<Mesh> mesh(new Mesh());
+                mesh->set_vertices(vertices);
+                vertices.clear();
+ 
+@@ -248,7 +247,7 @@ namespace OBJ
+             if (!textures[data])
+             {
+                string texture_path = Path::join(Path::basedir(path), data + ".png");
+-               textures[data] = std1::shared_ptr<Texture>(new Texture(texture_path));
++               textures[data] = std::shared_ptr<Texture>(new Texture(texture_path));
+             }
+ 
+             current_material = Material();
+@@ -259,7 +258,7 @@ namespace OBJ
+          {
+             if (vertices.size()) // Different texture, new mesh.
+             {
+-               std1::shared_ptr<Mesh> mesh(new Mesh());
++               std::shared_ptr<Mesh> mesh(new Mesh());
+                mesh->set_vertices(vertices);
+                vertices.clear();
+ 
+@@ -275,7 +274,7 @@ namespace OBJ
+ 
+       if (vertices.size())
+       {
+-         std1::shared_ptr<Mesh> mesh(new Mesh());
++         std::shared_ptr<Mesh> mesh(new Mesh());
+          mesh->set_vertices(vertices);
+          vertices.clear();
+ 
+diff --git a/engine/object.hpp b/engine/object.hpp
+index 79ed702..794e54d 100644
+--- a/engine/object.hpp
++++ b/engine/object.hpp
+@@ -26,7 +26,7 @@
+ 
+ namespace OBJ
+ {
+-   std::vector<std1::shared_ptr<GL::Mesh> > load_from_file(const std::string& path);
++   std::vector<std::shared_ptr<GL::Mesh> > load_from_file(const std::string& path);
+ }
+ 
+ #endif
+diff --git a/engine/texture.cpp b/engine/texture.cpp
+index a3b22e7..6206cc8 100644
+--- a/engine/texture.cpp
++++ b/engine/texture.cpp
+@@ -18,6 +18,7 @@
+ #include "texture.hpp"
+ #include "rpng.h"
+ #include "util.hpp"
++#include <memory>
+ #include <stdint.h>
+ #include <string.h>
+ #include <stdlib.h>
+@@ -31,7 +32,6 @@
+ #include "rtga.h"
+ 
+ using namespace std;
+-using namespace std1;
+ 
+ 
+ namespace GL
+@@ -165,9 +165,9 @@ namespace GL
+       glActiveTexture(GL_TEXTURE0);
+    }
+ 
+-   std1::shared_ptr<Texture> Texture::blank()
++   std::shared_ptr<Texture> Texture::blank()
+    {
+-      std1::shared_ptr<Texture> tex(new Texture);
++      std::shared_ptr<Texture> tex(new Texture);
+       uint32_t data = -1;
+       tex->upload_data(&data, 1, 1, false);
+       return tex;
+diff --git a/engine/texture.hpp b/engine/texture.hpp
+index 31cd391..d763252 100644
+--- a/engine/texture.hpp
++++ b/engine/texture.hpp
+@@ -20,6 +20,8 @@
+ 
+ #include "gl.hpp"
+ 
++#include <memory>
++
+ namespace GL
+ {
+    class Texture
+@@ -34,7 +36,7 @@ namespace GL
+ 
+          void load_dds(const std::string& path);
+ 
+-         static std1::shared_ptr<Texture> blank();
++         static std::shared_ptr<Texture> blank();
+          void upload_data(const void* data, unsigned width, unsigned height,
+                bool generate_mipmap);
+ 
+diff --git a/program/modelviewer.cpp b/program/modelviewer.cpp
+index 0906e3d..bc8b4f8 100644
+--- a/program/modelviewer.cpp
++++ b/program/modelviewer.cpp
+@@ -34,8 +34,8 @@ static bool first_init = true;
+ static std::string mesh_path;
+ static bool discard_hack_enable = false;
+ 
+-static std::vector<std1::shared_ptr<GL::Mesh> > meshes;
+-static std1::shared_ptr<GL::Texture> blank;
++static std::vector<std::shared_ptr<GL::Mesh> > meshes;
++static std::shared_ptr<GL::Texture> blank;
+ 
+ //forward decls
+ static void scenewalker_reset_mesh_path(void);
+@@ -532,7 +532,7 @@ static void init_mesh(const std::string& path)
+       "  gl_FragColor = vec4(diffuse + ambient + specular, uMTLAlphaMod * colorDiffuseFull.a);\n"
+       "}";
+    
+-   std1::shared_ptr<GL::Shader> shader(new GL::Shader(vertex_shader, (mode_engine == MODE_SCENEWALKER) 
++   std::shared_ptr<GL::Shader> shader(new GL::Shader(vertex_shader, (mode_engine == MODE_SCENEWALKER) 
+                ? fragment_shader_scene : ((discard_hack_enable) 
+                ? fragment_shader_avoid_discard_hack : fragment_shader)));
+    meshes = OBJ::load_from_file(path);
+diff --git a/shared.hpp b/shared.hpp
+index 44deff2..6d3ccdf 100644
+--- a/shared.hpp
++++ b/shared.hpp
+@@ -19,20 +19,10 @@
+ #ifndef SHARED_HPP__
+ #define SHARED_HPP__
+ 
+-#if defined(_MSC_VER) || defined(EMSCRIPTEN)
+ #include <memory>
+ #ifdef _MSC_VER
+ #define snprintf _snprintf
+ #endif
+-#else
+-#include <tr1/memory>
+-#endif
+-
+-#if defined(__QNX__) || defined(IOS) || defined(OSX)
+-namespace std1 = compat;
+-#elif !defined(EMSCRIPTEN)
+-namespace std1 = std::tr1;
+-#endif
+ 
+ #include <libretro.h>
+ 
+-- 
+2.30.2
+
