@@ -1,1 +1,1 @@
-3dengine https://github.com/libretro/libretro-3dengine/archive/4fbe7cb2f90d3c8db994af60085fb2ac93677545.zip
+3dengine https://github.com/libretro/libretro-3dengine/archive/4fbe7cb2f90d3c8db994af60085fb2ac93677545.tar.gz
