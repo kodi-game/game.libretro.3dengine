@@ -18,6 +18,6 @@
 		<platform>@PLATFORM@</platform>
 		<source>https://github.com/kodi-game/game.libretro.3dengine</source>
 		<summary lang="en_GB">Test Core - 3D Engine v1</summary>
-		<description lang="en_GB">A tech demo for libretro GL with additional features (camera/location/etc).</description>
+		<description lang="en_GB">A tech demo for libretro GL with additional features (camera/location/etc).[CR][CR]Supported files: .png, .jpg, .mtl, .obj</description>
 	</extension>
 </addon>
