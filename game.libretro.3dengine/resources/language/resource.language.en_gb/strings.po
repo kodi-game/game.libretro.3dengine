@@ -21,9 +21,7 @@ msgid "Test Core - 3D Engine v1"
 msgstr ""
 
 msgctxt "Addon Description"
-msgid "A tech demo for libretro GL with additional features (camera/location/etc).
-
-Supported files: .png, .jpg, .mtl, .obj"
+msgid "A tech demo for libretro GL with additional features (camera/location/etc).[CR][CR]Supported files: .png, .jpg, .mtl, .obj"
 msgstr ""
 
 msgctxt "#30000"
