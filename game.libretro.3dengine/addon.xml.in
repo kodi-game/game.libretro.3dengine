@@ -19,6 +19,8 @@
 		<platform>@PLATFORM@</platform>
 		<source>https://github.com/kodi-game/game.libretro.3dengine</source>
 		<summary lang="en_GB">Test Core - 3D Engine v1</summary>
+		<description lang="da_DK">En teknisk demo til libretro GL med yderligere funktioner (kamera/placering/osv.).</description>
 		<description lang="en_GB">A tech demo for libretro GL with additional features (camera/location/etc).</description>
+		<description lang="zh_CN">包含附加功能（摄像头/位置等）的 libretro GL 的技术演示。</description>
 	</extension>
 </addon>
