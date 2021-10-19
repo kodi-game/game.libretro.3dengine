@@ -4,9 +4,21 @@
 # Test Core - 3D Engine
 
 ### Description
+
 A tech demo for libretro GL with additional features (camera/location/etc).
 
 ### License
+
 GPLv3
 
+### Icon
 
+Help make me an icon!
+
+### Fanart
+
+Help make me fanart!
+
+### Screenshots
+
+Help make me screenshots!
