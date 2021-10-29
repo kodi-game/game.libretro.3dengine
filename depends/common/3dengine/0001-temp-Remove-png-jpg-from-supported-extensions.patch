@@ -1,0 +1,27 @@
+From 77d69aa9e592efbd07ee76874629cbf30ec09e0a Mon Sep 17 00:00:00 2001
+From: Garrett Brown <themagnificentmrb@gmail.com>
+Date: Fri, 29 Oct 2021 09:12:05 -0700
+Subject: [PATCH] [temp] Remove png/jpg from supported extensions
+
+This is a temporary measure until Kodi can properly handle these extensions
+in the File Manager.
+---
+ libretro.cpp | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/libretro.cpp b/libretro.cpp
+index 6e7a04f..54b4ea1 100644
+--- a/libretro.cpp
++++ b/libretro.cpp
+@@ -109,7 +109,7 @@ void retro_get_system_info(struct retro_system_info *info)
+ #endif
+    info->library_version  = "v1" GIT_VERSION;
+    info->need_fullpath    = false;
+-   info->valid_extensions = "png|jpg|mtl|obj";
++   info->valid_extensions = "mtl|obj";
+ }
+ 
+ void retro_get_system_av_info(struct retro_system_av_info *info)
+-- 
+2.30.2
+
