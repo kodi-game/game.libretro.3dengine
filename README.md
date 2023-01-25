@@ -13,7 +13,7 @@ GPLv3
 
 ### Icon
 
-![Icon](game.libretro.3dengine/resources/icon.png)
+![Test Core - 3D Engine icon](game.libretro.3dengine/resources/icon.png)
 
 ### Fanart
 
