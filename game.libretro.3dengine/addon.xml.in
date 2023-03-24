@@ -21,7 +21,7 @@
 		<assets>
 			<icon>resources/icon.png</icon>
 		</assets>
-		<summary lang="en_GB">Test Core - 3D Engine v1</summary>
+		<summary lang="en_GB">Test Core - 3D Engine</summary>
 		<description lang="da_DK">En teknisk demo til libretro GL med yderligere funktioner (kamera/placering/osv.).</description>
 		<description lang="de_DE">Eine technische Demo für libretro GL mit zusätzlichen Funktionen (Kamera/Standort/usw.).</description>
 		<description lang="en_GB">A tech demo for libretro GL with additional features (camera/location/etc).</description>
