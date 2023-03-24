@@ -17,7 +17,7 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 msgctxt "Addon Summary"
-msgid "Test Core - 3D Engine v1"
+msgid "Test Core - 3D Engine"
 msgstr ""
 
 msgctxt "Addon Description"

@@ -18,7 +18,7 @@ msgstr ""
 "X-Generator: Weblate 4.14.2\n"
 
 msgctxt "Addon Summary"
-msgid "Test Core - 3D Engine v1"
+msgid "Test Core - 3D Engine"
 msgstr ""
 
 msgctxt "Addon Description"
