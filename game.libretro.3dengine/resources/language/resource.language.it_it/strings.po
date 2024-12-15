@@ -25,10 +25,6 @@ msgctxt "Addon Description"
 msgid "A tech demo for libretro GL with additional features (camera/location/etc)."
 msgstr "Una demo tecnica per libretro GL con funzionalità aggiuntive (fotocamera, posizione, ecc.)."
 
-msgctxt "#30000"
-msgid "Settings"
-msgstr "Impostazioni"
-
 msgctxt "#30001"
 msgid "Internal resolution"
 msgstr "Risoluzione interna"
@@ -68,3 +64,7 @@ msgstr "Abilita scarta hack"
 msgctxt "#30010"
 msgid "Location position OSD"
 msgstr "Posizione della posizione dell'OSD"
+
+#~ msgctxt "#30000"
+#~ msgid "Settings"
+#~ msgstr "Impostazioni"

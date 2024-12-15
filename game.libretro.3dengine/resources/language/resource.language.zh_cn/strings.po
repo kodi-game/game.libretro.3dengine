@@ -25,10 +25,6 @@ msgctxt "Addon Description"
 msgid "A tech demo for libretro GL with additional features (camera/location/etc)."
 msgstr "包含附加功能（摄像头/位置等）的 libretro GL 的技术演示。"
 
-msgctxt "#30000"
-msgid "Settings"
-msgstr "设置"
-
 msgctxt "#30001"
 msgid "Internal resolution"
 msgstr "内部分辨率"
@@ -68,3 +64,7 @@ msgstr "放弃黑客启用"
 msgctxt "#30010"
 msgid "Location position OSD"
 msgstr "位置 OSD"
+
+#~ msgctxt "#30000"
+#~ msgid "Settings"
+#~ msgstr "设置"

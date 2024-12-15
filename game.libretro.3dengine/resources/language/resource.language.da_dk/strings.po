@@ -25,10 +25,6 @@ msgctxt "Addon Description"
 msgid "A tech demo for libretro GL with additional features (camera/location/etc)."
 msgstr "En teknisk demo til libretro GL med yderligere funktioner (kamera/placering/osv.)."
 
-msgctxt "#30000"
-msgid "Settings"
-msgstr "Indstillinger"
-
 msgctxt "#30001"
 msgid "Internal resolution"
 msgstr "Intern opløsning"
@@ -68,3 +64,7 @@ msgstr "Kassér aktivering af hack"
 msgctxt "#30010"
 msgid "Location position OSD"
 msgstr "OSD ved placeringsposition"
+
+#~ msgctxt "#30000"
+#~ msgid "Settings"
+#~ msgstr "Indstillinger"
