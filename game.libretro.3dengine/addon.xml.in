@@ -25,12 +25,14 @@
 		<summary lang="en_GB">Test Core - 3D Engine</summary>
 		<summary lang="es_ES">Core de Test - Motor 3D</summary>
 		<summary lang="it_IT">Test Core - Motore 3D</summary>
+		<summary lang="sv_SE">Testkärna - 3D-motor</summary>
 		<summary lang="zh_CN">测试核心 - 3D 引擎</summary>
 		<description lang="da_DK">En teknisk demo til libretro GL med yderligere funktioner (kamera/placering/osv.).</description>
 		<description lang="de_DE">Eine technische Demo für libretro GL mit zusätzlichen Funktionen (Kamera/Standort/usw.).</description>
 		<description lang="en_GB">A tech demo for libretro GL with additional features (camera/location/etc).</description>
 		<description lang="es_ES">Demostración técnica de libretro GL con funciones adicionales (cámara/localización/etc).</description>
 		<description lang="it_IT">Una demo tecnica per libretro GL con funzionalità aggiuntive (fotocamera, posizione, ecc.).</description>
+		<description lang="sv_SE">En teknisk demo för libretro GL med ytterligare funktioner (kamera/placering/etc).</description>
 		<description lang="zh_CN">包含附加功能（摄像头/位置等）的 libretro GL 的技术演示。</description>
 	</extension>
 </addon>
