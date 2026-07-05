@@ -22,6 +22,7 @@
 		<assets>
 			<icon>resources/icon.png</icon>
 		</assets>
+		<summary lang="cs_CZ">Testovací jádro - 3D Engine</summary>
 		<summary lang="da_DK">Testkerne - 3D motor</summary>
 		<summary lang="en_GB">Test Core - 3D Engine</summary>
 		<summary lang="es_ES">Core de Test - Motor 3D</summary>
@@ -30,6 +31,7 @@
 		<summary lang="ru_RU">Тестовое ядро — 3D Engine</summary>
 		<summary lang="sv_SE">Testkärna - 3D-motor</summary>
 		<summary lang="zh_CN">测试核心 - 3D 引擎</summary>
+		<description lang="cs_CZ">Technologické demo pro libretro GL s dalšími funkcemi (kamera/poloha/atd.).</description>
 		<description lang="da_DK">En teknisk demo til libretro GL med yderligere funktioner (kamera/placering/osv.).</description>
 		<description lang="de_DE">Eine technische Demo für libretro GL mit zusätzlichen Funktionen (Kamera/Standort/usw.).</description>
 		<description lang="en_GB">A tech demo for libretro GL with additional features (camera/location/etc).</description>
