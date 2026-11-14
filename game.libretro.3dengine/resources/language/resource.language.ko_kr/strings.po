@@ -65,6 +65,10 @@ msgctxt "#30010"
 msgid "Location position OSD"
 msgstr ""
 
+msgctxt "#30011"
+msgid "VR enable in modelviewer"
+msgstr ""
+
 #~ msgctxt "#30000"
 #~ msgid "Settings"
 #~ msgstr "설정"

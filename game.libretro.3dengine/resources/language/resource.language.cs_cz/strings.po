@@ -64,3 +64,7 @@ msgstr "Povolit discard hack"
 msgctxt "#30010"
 msgid "Location position OSD"
 msgstr "Poloha v OSD"
+
+msgctxt "#30011"
+msgid "VR enable in modelviewer"
+msgstr ""
