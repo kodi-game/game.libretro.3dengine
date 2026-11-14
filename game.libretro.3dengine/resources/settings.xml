@@ -1,15 +1,163 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<settings>
-	<category label="128">
-		<setting label="30001" type="select" id="3dengine-resolution" values="320x240|360x480|480x272|512x384|512x512|640x240|640x448|640x480|720x576|800x600|960x720|1024x768|1024x1024|1280x720|1280x960|1600x1200|1920x1080|1920x1440|1920x1600|2048x1152|2048x1536|2048x2048|320x240" default="320x240"/>
-		<setting label="30002" type="select" id="3dengine-cube-size" values="0|1|2|4|8|16|32|64|128" default="0"/>
-		<setting label="30003" type="select" id="3dengine-cube-stride" values="2.0|3.0|4.0|5.0|6.0|7.0|8.0" default="2.0"/>
-		<setting label="30004" type="select" id="3dengine-camera-enable" values="disabled|enabled" default="disabled"/>
-		<setting label="30005" type="select" id="3dengine-camera-type" values="texture|raw framebuffer" default="texture"/>
-		<setting label="30006" type="select" id="3dengine-sensor-enable" values="disabled|enabled" default="disabled"/>
-		<setting label="30007" type="select" id="3dengine-location-enable" values="disabled|enabled" default="disabled"/>
-		<setting label="30008" type="select" id="3dengine-location-camera-control-enable" values="disabled|enabled" default="disabled"/>
-		<setting label="30009" type="select" id="3dengine-modelviewer-discard-hack" values="disabled|enabled" default="disabled"/>
-		<setting label="30010" type="select" id="3dengine-location-display-position" values="disabled|enabled" default="disabled"/>
-	</category>
+<settings version="1">
+	<section id="game.libretro.3dengine">
+		<category id="general" label="128">
+			<group id="1">
+				<setting id="3dengine-resolution" type="string" label="30001">
+					<level>0</level>
+					<default>320x240</default>
+					<constraints>
+						<options>
+							<option>320x240</option>
+							<option>360x480</option>
+							<option>480x272</option>
+							<option>512x384</option>
+							<option>512x512</option>
+							<option>640x240</option>
+							<option>640x448</option>
+							<option>640x480</option>
+							<option>720x576</option>
+							<option>800x600</option>
+							<option>960x720</option>
+							<option>1024x768</option>
+							<option>1024x1024</option>
+							<option>1280x720</option>
+							<option>1280x960</option>
+							<option>1600x1200</option>
+							<option>1920x1080</option>
+							<option>1920x1440</option>
+							<option>1920x1600</option>
+							<option>2048x1152</option>
+							<option>2048x1536</option>
+							<option>2048x2048</option>
+							<option>320x240</option>
+						</options>
+					</constraints>
+					<control type="list" format="string" />
+				</setting>
+				<setting id="3dengine-cube-size" type="string" label="30002">
+					<level>0</level>
+					<default>0</default>
+					<constraints>
+						<options>
+							<option>0</option>
+							<option>1</option>
+							<option>2</option>
+							<option>4</option>
+							<option>8</option>
+							<option>16</option>
+							<option>32</option>
+							<option>64</option>
+							<option>128</option>
+						</options>
+					</constraints>
+					<control type="list" format="string" />
+				</setting>
+				<setting id="3dengine-cube-stride" type="string" label="30003">
+					<level>0</level>
+					<default>2.0</default>
+					<constraints>
+						<options>
+							<option>2.0</option>
+							<option>3.0</option>
+							<option>4.0</option>
+							<option>5.0</option>
+							<option>6.0</option>
+							<option>7.0</option>
+							<option>8.0</option>
+						</options>
+					</constraints>
+					<control type="list" format="string" />
+				</setting>
+				<setting id="3dengine-camera-enable" type="string" label="30004">
+					<level>0</level>
+					<default>disabled</default>
+					<constraints>
+						<options>
+							<option label="13106">disabled</option>
+							<option label="305">enabled</option>
+						</options>
+					</constraints>
+					<control type="list" format="string" />
+				</setting>
+				<setting id="3dengine-camera-type" type="string" label="30005">
+					<level>0</level>
+					<default>texture</default>
+					<constraints>
+						<options>
+							<option>texture</option>
+							<option>raw framebuffer</option>
+						</options>
+					</constraints>
+					<control type="list" format="string" />
+				</setting>
+				<setting id="3dengine-sensor-enable" type="string" label="30006">
+					<level>0</level>
+					<default>disabled</default>
+					<constraints>
+						<options>
+							<option label="13106">disabled</option>
+							<option label="305">enabled</option>
+						</options>
+					</constraints>
+					<control type="list" format="string" />
+				</setting>
+				<setting id="3dengine-location-enable" type="string" label="30007">
+					<level>0</level>
+					<default>disabled</default>
+					<constraints>
+						<options>
+							<option label="13106">disabled</option>
+							<option label="305">enabled</option>
+						</options>
+					</constraints>
+					<control type="list" format="string" />
+				</setting>
+				<setting id="3dengine-location-camera-control-enable" type="string" label="30008">
+					<level>0</level>
+					<default>disabled</default>
+					<constraints>
+						<options>
+							<option label="13106">disabled</option>
+							<option label="305">enabled</option>
+						</options>
+					</constraints>
+					<control type="list" format="string" />
+				</setting>
+				<setting id="3dengine-modelviewer-discard-hack" type="string" label="30009">
+					<level>0</level>
+					<default>disabled</default>
+					<constraints>
+						<options>
+							<option label="13106">disabled</option>
+							<option label="305">enabled</option>
+						</options>
+					</constraints>
+					<control type="list" format="string" />
+				</setting>
+				<setting id="3dengine-location-display-position" type="string" label="30010">
+					<level>0</level>
+					<default>disabled</default>
+					<constraints>
+						<options>
+							<option label="13106">disabled</option>
+							<option label="305">enabled</option>
+						</options>
+					</constraints>
+					<control type="list" format="string" />
+				</setting>
+				<setting id="3dengine-modelviewer-vr-enable" type="string" label="30011">
+					<level>0</level>
+					<default>enabled</default>
+					<constraints>
+						<options>
+							<option label="305">enabled</option>
+							<option label="13106">disabled</option>
+						</options>
+					</constraints>
+					<control type="list" format="string" />
+				</setting>
+			</group>
+		</category>
+	</section>
 </settings>
